@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bambaa — Sites web, affiches, logos, formations et collaborations</title>
+<meta name="description" content="Bambaa : création de sites web, affiches, logos, formations pour grands débutants et collaboration sur des projets. Envoie ta demande sur WhatsApp.">
+<meta name="theme-color" content="#f7f8fc">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#accueil">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#accueil" aria-label="Bambaa, retour en haut"><span class="logo">B</span>Bambaa</a>
+  <nav id="menu" class="menu" aria-label="Navigation principale">
+    <a href="#accueil">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#demande">Faire une demande</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="theme" type="button" aria-label="Changer de thème">☾</button>
+    <button class="icon-btn burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Bienvenue chez Bambaa ! 👋🏾</h1>
+      <p class="lead">Tu as besoin d'un site web, d'une affiche, d'un logo ou tu souhaites apprendre l'informatique en partant de zéro ? Tu es au bon endroit !</p>
+      <p class="lead">Découvre mes services, choisis ce dont tu as besoin et envoie-moi ta demande. Nous pourrons ensuite échanger tranquillement pour en discuter.</p>
+      <div class="cta">
+        <a class="btn ghost" href="#services">Découvrir mes services</a>
+        <a class="btn primary" href="#demande">Faire une demande</a>
+      </div>
+    </div>
+    <aside class="how" aria-label="Comment ça marche">
+      <h2>Comment ça marche</h2>
+      <ol>
+        <li><b>Choisis un service</b><span>Site, affiche, logo, formation…</span></li>
+        <li><b>Décris ton besoin</b><span>Quelques questions simples.</span></li>
+        <li><b>Envoie sur WhatsApp</b><span>Tu relis ton message, puis tu l'envoies toi-même.</span></li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<section id="services" class="sec alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Mes services</h2>
+      <p>Clique sur « Détails » pour voir ce que contient chaque service, ou fais directement ta demande.</p>
+    </div>
+    <div class="grid cards" id="services-grid"></div>
+  </div>
+</section>
+
+<section id="demande" class="sec">
+  <div class="wrap narrow">
+    <div class="head">
+      <h2>Quel est ton besoin ?</h2>
+      <p>Choisis un service, réponds aux questions, puis envoie ta demande sur WhatsApp. Si tu ne sais pas comment le dire, écris-le simplement.</p>
+    </div>
+
+    <form id="form" class="form" novalidate>
+      <fieldset class="step">
+        <legend><span class="n">1</span>Choisis un service</legend>
+        <div class="choices" id="choices" role="radiogroup" aria-label="Service"></div>
+        <small class="err" id="err-service"></small>
+      </fieldset>
+
+      <div id="step2" class="step" hidden>
+        <h3 class="legend"><span class="n">2</span>Donne les détails <span class="chosen" id="chosen"></span></h3>
+
+        <div class="field">
+          <label for="nom">Nom ou pseudo <b>*</b></label>
+          <input id="nom" name="nom" type="text" autocomplete="name" maxlength="60" placeholder="Ex : Awa">
+          <small class="err" id="err-nom"></small>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="moyen">Moyen de contact préféré</label>
+            <select id="moyen" name="moyen">
+              <option>WhatsApp</option>
+              <option>Téléphone</option>
+              <option>E-mail</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="contact-info" id="contact-label">Numéro WhatsApp</label>
+            <input id="contact-info" name="contact" type="tel" autocomplete="tel" maxlength="80" placeholder="+221 …">
+            <small class="err" id="err-contact"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="besoin" id="besoin-label">Description du besoin <b>*</b></label>
+          <textarea id="besoin" name="besoin" rows="4" maxlength="1200" placeholder="Explique ce que tu veux, même si tu ne sais pas comment le réaliser."></textarea>
+          <small class="count"><span id="count">0</span>/1200</small>
+          <small class="err" id="err-besoin"></small>
+        </div>
+
+        <div id="specific" class="specific"></div>
+
+        <div class="row">
+          <div class="field">
+            <label for="budget">Budget estimé <b>*</b></label>
+            <input id="budget" name="budget" type="text" maxlength="60" placeholder="Ex : 25 000 FCFA" aria-describedby="err-budget">
+            <small class="err" id="err-budget"></small>
+          </div>
+          <div class="field">
+            <label for="delai">Délai souhaité <b>*</b></label>
+            <input id="delai" name="delai" type="text" maxlength="60" placeholder="Ex : dans 2 semaines" aria-describedby="err-delai">
+            <small class="err" id="err-delai"></small>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="ref">Lien ou référence <i>(facultatif)</i></label>
+          <input id="ref" name="ref" type="text" maxlength="200" placeholder="Un site, une image, un exemple…">
+        </div>
+
+        <button class="btn wa big" type="submit">
+          <svg class="i"><use href="#wa"/></svg>
+          Envoyer ma demande sur WhatsApp
+        </button>
+        <p class="fine">WhatsApp s'ouvrira avec ton message prérempli. Rien n'est envoyé tant que tu n'as pas appuyé sur « Envoyer » dans WhatsApp.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="sec alt">
+  <div class="wrap">
+    <div class="head">
+      <h2>Contact</h2>
+      <p>Une idée, une question, un besoin ? Écris-moi, même si ce n'est pas encore bien défini : on en discute tranquillement.</p>
+    </div>
+    <div class="grid cards" id="contact-grid"></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <strong>Bambaa</strong>
+        <p>Sites web · Affiches et logos · Formations pour débutants · Collaboration</p>
+      </div>
+      <nav class="foot-links" aria-label="Pied de page" id="foot-links"></nav>
+    </div>
+    <p class="copy">© <span id="year"></span> Bambaa. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<a class="fab" id="fab" data-wa href="#" target="_blank" rel="noopener" aria-label="Écrire sur WhatsApp">
+  <svg class="i"><use href="#wa"/></svg><span>WhatsApp</span>
+</a>
+
+<dialog id="detail" tabindex="-1" aria-labelledby="d-title">
+  <button class="x" data-close aria-label="Fermer">×</button>
+  <div class="d-badge" id="d-badge"></div>
+  <p class="d-cat">Service</p>
+  <h3 id="d-title"></h3>
+  <p id="d-text" class="d-text"></p>
+  <ul id="d-list" class="d-list"></ul>
+  <div class="d-actions">
+    <button class="btn ghost" data-close type="button">Fermer</button>
+    <button class="btn primary" id="d-cta" type="button">Faire une demande</button>
+  </div>
+</dialog>
+
+<dialog id="confirm" tabindex="-1" aria-labelledby="c-title">
+  <button class="x" data-close aria-label="Fermer">×</button>
+  <div class="d-badge ok"><svg class="i"><use href="#check"/></svg></div>
+  <h3 id="c-title">Ta demande est prête</h3>
+  <p class="d-text">Voici le message qui sera prérempli dans WhatsApp. Tu pourras le relire avant de l'envoyer.</p>
+  <pre id="c-preview" class="preview"></pre>
+  <div class="d-actions">
+    <button class="btn ghost" id="c-edit" type="button">Modifier ma demande</button>
+    <a class="btn wa" id="c-go" href="#" target="_blank" rel="noopener">
+      <svg class="i"><use href="#wa"/></svg>Ouvrir WhatsApp
+    </a>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/>
+  </symbol>
+  <symbol id="check" viewBox="0 0 24 24">
+    <path class="tick" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/>
+  </symbol>
+  <symbol id="tiktok" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M16.5 3c.3 2.3 1.7 3.8 4 4v3.1a7 7 0 0 1-4-1.3V15a5.5 5.5 0 1 1-5.5-5.5h.6v3.2a2.4 2.4 0 1 0 1.8 2.3V3z"/>
+  </symbol>
+  <symbol id="github" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>
+  </symbol>
+  <symbol id="gmail" viewBox="0 0 24 24">
+    <path fill="#EA4335" d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/>
+    <path fill="#fff" d="M5 7l7 5.2L19 7v2.4l-7 5.2-7-5.2z"/>
+  </symbol>
+</svg>
+
+<script src="config.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
